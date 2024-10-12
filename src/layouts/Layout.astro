@@ -1,0 +1,28 @@
+---
+import "@fontsource/montserrat";
+import "@fontsource/cormorant-garamond";
+import montserratWoff2 from "@fontsource/montserrat/files/montserrat-latin-400-normal.woff2?url";
+import cormorantGaramondWoff2 from "@fontsource/cormorant-garamond/files/cormorant-garamond-latin-400-normal.woff2?url";
+---
+
+<html lang="ro">
+  <head>
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={montserratWoff2}
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={cormorantGaramondWoff2}
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
