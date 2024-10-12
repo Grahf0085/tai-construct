@@ -11,7 +11,22 @@ export default {
           '"serif"',
           ...defaultTheme.fontFamily.sans,
         ],
+        serif: [
+          '"Montserrat"',
+          '"sans-serif"',
+          ...defaultTheme.fontFamily.serif,
+        ],
       },
+    },
+    colors: {
+      primary: "#6B0808",
+      secondary: "#3E5F3D",
+      accent: "#360914",
+      text: "#180000",
+      background: "#FAFAFA",
+    },
+    container: {
+      center: true,
     },
   },
   plugins: [],

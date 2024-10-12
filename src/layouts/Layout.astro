@@ -1,12 +1,31 @@
 ---
-import "@fontsource/montserrat";
 import "@fontsource/cormorant-garamond";
-import montserratWoff2 from "@fontsource/montserrat/files/montserrat-latin-400-normal.woff2?url";
+import "@fontsource/montserrat";
 import cormorantGaramondWoff2 from "@fontsource/cormorant-garamond/files/cormorant-garamond-latin-400-normal.woff2?url";
+import montserratWoff2 from "@fontsource/montserrat/files/montserrat-latin-400-normal.woff2?url";
+
+const { description, title } = Astro.props;
 ---
 
 <html lang="ro">
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="keywords"
+      content="gratare din caramida, gratar din caramida, gratare de gradina, gratar de gradina, sobe de teracota, soba de teracota, semineu pe lemne, gratare, caramida, gratar, gradina, sobe, teracota, soba, semineu, lemne"
+    />
+    <meta name="author" content="Boostado" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={cormorantGaramondWoff2}
+      crossorigin="anonymous"
+    />
     <link
       rel="preload"
       as="font"
@@ -15,14 +34,18 @@ import cormorantGaramondWoff2 from "@fontsource/cormorant-garamond/files/cormora
       crossorigin="anonymous"
     />
     <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      href={cormorantGaramondWoff2}
-      crossorigin="anonymous"
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/Michal-Skoula/simple-scroll-animations@master/release/latest/styles.css"
     />
+    <script
+      is:inline
+      defer
+      src="https://cdn.jsdelivr.net/gh/Michal-Skoula/simple-scroll-animations@master/release/latest/script.js"
+    ></script>
   </head>
   <body>
-    <slot />
+    <main>
+      <slot />
+    </main>
   </body>
 </html>
