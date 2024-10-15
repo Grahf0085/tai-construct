@@ -1,0 +1,43 @@
+---
+const { dropdown = false, id = "navbar", text = "" } = Astro.props;
+---
+
+<button
+  class=`hs-collapse-toggle inline-flex items-center justify-center ${dropdown ? "group gap-x-1 text-sm text-text transition duration-200 hover:font-semibold hover:text-primary xl:gap-x-2 xl:text-lg xl:leading-5": "xl:hidden"}`
+  type="button"
+  data-hs-collapse=`#${id}`
+>
+  {dropdown && text}
+  {
+    dropdown ? (
+      <svg
+        class="size-4 fill-none stroke-text stroke-2 transition duration-200 group-hover:stroke-primary group-hover:stroke-[3px] xl:size-6"
+        viewBox="0 0 24 24"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    ) : (
+      <svg
+        class="size-6 fill-none stroke-accent stroke-[4px] hs-collapse-open:hidden md:size-10"
+        viewBox="0 0 40 40"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M5 10H35M5 20H35M5 30H35"></path>
+      </svg>
+      <svg
+        class="hidden size-6 fill-none stroke-accent stroke-[4px] hs-collapse-open:block md:size-10"
+        viewBox="0 0 40 40"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M10 30L15 25L20 20M30 10L25 15L20 20M30 30L25 25L20 20M10 10L15 15L20 20"></path>
+      </svg>
+    )
+  }
+</button>
+<ul class=`hs-collapse hidden ${!dropdown && "w-full max-xl:container max-xl:absolute max-xl:left-0 max-xl:top-full max-xl:h-[33.25rem] max-xl:bg-background max-xl:py-8 xl:flex xl:items-center xl:gap-x-6"}` id={id}>
+  <slot />
+</ul>

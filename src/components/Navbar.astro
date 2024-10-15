@@ -1,0 +1,46 @@
+---
+import Image from "astro/components/Image.astro";
+import logo from "../assets/logo-navbar.webp";
+import Collapse from "./Collapse.astro";
+import Link from "./Link.astro";
+import Button from "./Button.astro";
+
+const { links } = Astro.props;
+---
+
+<header class="sticky top-0 bg-background">
+  <nav
+    class="container flex items-center py-0.5 max-xl:justify-between md:py-2 xl:gap-x-6 xl:py-1"
+  >
+    <a href="/">
+      <Image
+        class="h-8 w-[3.6rem] md:h-10 md:w-[4.5rem] xl:h-12 xl:w-[5.5rem]"
+        src={logo}
+        alt="TAI Construct - Experti in gratare din caramida si sobe de teracota. Oferim solutii complete pentru amenajari exterioare si interioare, cu accent pe durabilitate si design"
+        loading="eager"
+      />
+    </a>
+    <Collapse>
+      {
+        links.map((link) => (
+          <li class="max-xl:mb-4 max-xl:border-b max-xl:border-text/30 max-xl:py-0.5 max-xl:text-center">
+            {link.href === "/servicii" ? (
+              <Collapse dropdown id="dropdown" text={link.text}>
+                {link.services.map((service) => (
+                  <li>
+                    <Link href={service.href}>{service.text}</Link>
+                  </li>
+                ))}
+              </Collapse>
+            ) : (
+              <Link href={link.href}>{link.text}</Link>
+            )}
+          </li>
+        ))
+      }
+    </Collapse>
+    <li class="max-xl:pt-6 max-xl:text-center xl:ml-auto">
+      <Button icon text="Apeleaza-ne" />
+    </li>
+  </nav>
+</header>

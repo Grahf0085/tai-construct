@@ -3,8 +3,22 @@ import "@fontsource/cormorant-garamond";
 import "@fontsource/montserrat";
 import cormorantGaramondWoff2 from "@fontsource/cormorant-garamond/files/cormorant-garamond-latin-400-normal.woff2?url";
 import montserratWoff2 from "@fontsource/montserrat/files/montserrat-latin-400-normal.woff2?url";
+import Navbar from "../components/Navbar.astro";
 
 const { description, title } = Astro.props;
+const links = [
+  { href: "/despre-noi", text: "Despre noi" },
+  {
+    href: "/servicii",
+    text: "Servicii",
+    services: [
+      { href: "/gratare-din-caramida", text: "Gratare din caramida" },
+      { href: "/sobe-de-teracota", text: "Sobe de teracota" },
+    ],
+  },
+  { href: "/portofoliu", text: "Portofoliu" },
+  { href: "/contact", text: "Contact" },
+];
 ---
 
 <html lang="ro">
@@ -44,8 +58,13 @@ const { description, title } = Astro.props;
     ></script>
   </head>
   <body>
+    <Navbar links={links} />
     <main>
       <slot />
     </main>
   </body>
 </html>
+
+<script>
+  import "preline/dist/preline.js";
+</script>
