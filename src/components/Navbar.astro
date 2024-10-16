@@ -28,19 +28,19 @@ const { links } = Astro.props;
               <Collapse dropdown id="dropdown" text={link.text}>
                 {link.services.map((service) => (
                   <li>
-                    <Link href={service.href}>{service.text}</Link>
+                    <Link href={service.href} text={service.text} />
                   </li>
                 ))}
               </Collapse>
             ) : (
-              <Link href={link.href}>{link.text}</Link>
+              <Link href={link.href} text={link.text} />
             )}
           </li>
         ))
       }
+      <li class="max-xl:pt-6 max-xl:text-center xl:ml-auto">
+        <Button icon text="Apeleaza-ne" />
+      </li>
     </Collapse>
-    <li class="max-xl:pt-6 max-xl:text-center xl:ml-auto">
-      <Button icon text="Apeleaza-ne" />
-    </li>
   </nav>
 </header>

@@ -1,5 +1,5 @@
 ---
-const { dropdown = false, id = "navbar", text = "" } = Astro.props;
+const { dropdown = false, id = "navbar", text } = Astro.props;
 ---
 
 <button
@@ -25,7 +25,7 @@ const { dropdown = false, id = "navbar", text = "" } = Astro.props;
         stroke-linecap="round"
         stroke-linejoin="round"
       >
-        <path d="M5 10H35M5 20H35M5 30H35"></path>
+        <path d="M5 10H35M5 20H35M5 30H35" />
       </svg>
       <svg
         class="hidden size-6 fill-none stroke-accent stroke-[4px] hs-collapse-open:block md:size-10"
@@ -33,7 +33,7 @@ const { dropdown = false, id = "navbar", text = "" } = Astro.props;
         stroke-linecap="round"
         stroke-linejoin="round"
       >
-        <path d="M10 30L15 25L20 20M30 10L25 15L20 20M30 30L25 25L20 20M10 10L15 15L20 20"></path>
+        <path d="M10 30L15 25L20 20M30 10L25 15L20 20M30 30L25 25L20 20M10 10L15 15L20 20" />
       </svg>
     )
   }
